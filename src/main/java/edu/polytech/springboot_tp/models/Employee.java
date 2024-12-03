@@ -42,4 +42,8 @@ public class Employee {
     @OneToOne
     @JoinColumn(name="address_id")
     private Address address;
+
+    @ManyToOne
+    @JoinColumn(name = "departement_id")
+    private Departement departement;
 }

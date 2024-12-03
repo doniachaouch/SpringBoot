@@ -18,7 +18,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    
+
     @Column(nullable = false, unique = true)
     private String identifier;
 
@@ -38,4 +38,8 @@ public class Employee {
     @Column(nullable = false)
     private  EmployeeRole role;
 
+
+    @OneToOne
+    @JoinColumn(name="address_id")
+    private Address address;
 }

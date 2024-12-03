@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -46,4 +48,13 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "departement_id")
     private Departement departement;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "employee_mission",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "mission_id")
+    )
+    private List<Mission> missions;
 }
